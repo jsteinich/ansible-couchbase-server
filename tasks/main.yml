@@ -17,15 +17,11 @@
 
 # Red Hat tasks
 - include: RedHat.yml
-  when: ansible_distribution  == "RedHat"
+  when: ansible_distribution  == "RedHat" or ansible_distribution  == "Amazon" 
 
 # Ubuntu tasks
 - include: Ubuntu.yml
   when: ansible_distribution  == "Ubuntu"
-  
-  # Amazon tasks
-- include: Amazon.yml
-  when: ansible_distribution  == "Amazon"
 
 - name: Update user limits
   become: yes
